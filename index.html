@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>jquery.imgToCanvas</title>
+
+<script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+<script src="jquery.imageToCanvas.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myImage').imageToCanvas();
+        
+        $('CANVAS').each(function () {
+            $(this).mousedown(function () {
+                this.mouseIsDown = true;
+            });
+
+            $(this).mouseup(function () {
+                this.mouseIsDown = false;
+            });
+            
+            $(this).mousemove(function (ev) {
+                if (this.mouseIsDown) {
+                    var ctx   = this.getContext("2d"),
+                        toffs = $(this).offset();
+                    
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.3)'
+                    ctx.fillRect(ev.pageX-toffs.left-3,ev.pageY-toffs.top-3, 7, 7);
+                }
+            });
+        });
+    });
+</script>
+
+<style type="text/css">
+IMG {
+    border: 1px dashed black;
+}
+
+CANVAS {
+    border: 1px dotted red;
+}
+</style>
+
+</head>
+<body>
+
+<p><img id="myImage" src="test.jpg" alt="pew pew" title="pew pew puppygun"></p>
+
+
+<pre><code>
+
+</code></pre>
+
+</body>
+</html>
