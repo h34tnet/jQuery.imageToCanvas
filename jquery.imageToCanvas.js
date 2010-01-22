@@ -4,7 +4,7 @@
  *
  * A jQuery plugin that turns an DOM image element into an HTML5 canvas while preserving the image data.
  *
- * http://github.com/schnalle/jQuery.imageToCanvas
+ * http://github.com/schnalle/jQuery.imageToCanvas 
  */
 
 (function($) {
